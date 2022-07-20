@@ -81,9 +81,10 @@ func (idb *InDB) Login(c *gin.Context) {
 		c.JSON(http.StatusOK, result)
 		return
 	}
-
 	result = gin.H{
-		"token": tokenString,
+		"token":  tokenString,
+		"type":   "Bearer",
+		"expire": 3600,
 	}
 	c.JSON(http.StatusOK, result)
 	return
